@@ -3,15 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
-  <meta http-equiv="refresh" content="0; url=https://urlgeni.us/ySs8Mh">
+  <meta name="robots" content="noindex,nofollow">
   <title>StyleUp - Yönlendiriliyor</title>
 </head>
+
 <body>
-<script>
-  window.location.replace("https://urlgeni.us/ySs8Mh");
-</script>
-<p>Yönlendiriliyorsunuz...</p>
-<p><a href="https://urlgeni.us/ySs8Mh">Açılmadıysa buraya dokunun</a></p>
+  <p>Yönlendiriliyorsunuz...</p>
+
+  <p>
+    <a id="openLink" href="https://urlgeni.us/ySs8Mh">
+      Açılmadıysa buraya dokunun
+    </a>
+  </p>
+
+  <script>
+    const target = "https://urlgeni.us/ySs8Mh";
+    const instagramExternal =
+      "instagram://extbrowser/?url=" + encodeURIComponent(target);
+
+    const ua = navigator.userAgent || "";
+    const isInstagram = /Instagram/i.test(ua);
+
+    if (isInstagram) {
+      window.location.href = instagramExternal;
+
+      // Instagram komutu çalışmazsa normal linki dene
+      setTimeout(function () {
+        window.location.href = target;
+      }, 1800);
+    } else {
+      window.location.replace(target);
+    }
+
+    document.getElementById("openLink").onclick = function (e) {
+      if (isInstagram) {
+        e.preventDefault();
+        window.location.href = instagramExternal;
+      }
+    };
+  </script>
 </body>
 </html>
